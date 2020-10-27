@@ -1,0 +1,251 @@
+[{
+    "Model": "Car851",
+    "Price": 12500.0,
+    "Period": 2,
+    "InitialPayment": 9447.0
+}, {
+    "Model": "Car426",
+    "Price": 18300.0,
+    "Period": 1,
+    "InitialPayment": 18262.0
+}, {
+    "Model": "Car682",
+    "Price": 10700.0,
+    "Period": 3,
+    "InitialPayment": 939.0
+}, {
+    "Model": "Car95",
+    "Price": 17000.0,
+    "Period": 3,
+    "InitialPayment": 8885.0
+}, {
+    "Model": "Car85",
+    "Price": 12500.0,
+    "Period": 1,
+    "InitialPayment": 11019.0
+}, {
+    "Model": "Car752",
+    "Price": 38100.0,
+    "Period": 3,
+    "InitialPayment": 28089.0
+}, {
+    "Model": "Car923",
+    "Price": 8200.0,
+    "Period": 4,
+    "InitialPayment": 509.0
+}, {
+    "Model": "Car673",
+    "Price": 41100.0,
+    "Period": 3,
+    "InitialPayment": 29780.0
+}, {
+    "Model": "Car463",
+    "Price": 12300.0,
+    "Period": 3,
+    "InitialPayment": 3532.0
+}, {
+    "Model": "Car724",
+    "Price": 23000.0,
+    "Period": 2,
+    "InitialPayment": 16927.0
+}, {
+    "Model": "Car969",
+    "Price": 6200.0,
+    "Period": 4,
+    "InitialPayment": 994.0
+}, {
+    "Model": "Car383",
+    "Price": 47200.0,
+    "Period": 2,
+    "InitialPayment": 40977.0
+}, {
+    "Model": "Car101",
+    "Price": 21800.0,
+    "Period": 4,
+    "InitialPayment": 21459.0
+}, {
+    "Model": "Car2",
+    "Price": 11700.0,
+    "Period": 3,
+    "InitialPayment": 346.0
+}, {
+    "Model": "Car763",
+    "Price": 27200.0,
+    "Period": 4,
+    "InitialPayment": 12107.0
+}, {
+    "Model": "Car638",
+    "Price": 15000.0,
+    "Period": 3,
+    "InitialPayment": 5893.0
+}, {
+    "Model": "Car602",
+    "Price": 19600.0,
+    "Period": 4,
+    "InitialPayment": 17530.0
+}, {
+    "Model": "Car399",
+    "Price": 13900.0,
+    "Period": 4,
+    "InitialPayment": 9559.0
+}, {
+    "Model": "Car495",
+    "Price": 10200.0,
+    "Period": 2,
+    "InitialPayment": 5008.0
+}, {
+    "Model": "Car443",
+    "Price": 13900.0,
+    "Period": 1,
+    "InitialPayment": 10452.0
+}, {
+    "Model": "Car486",
+    "Price": 18000.0,
+    "Period": 4,
+    "InitialPayment": 17513.0
+}, {
+    "Model": "Car822",
+    "Price": 22100.0,
+    "Period": 4,
+    "InitialPayment": 11533.0
+}, {
+    "Model": "Car616",
+    "Price": 8300.0,
+    "Period": 3,
+    "InitialPayment": 3553.0
+}, {
+    "Model": "Car535",
+    "Price": 30600.0,
+    "Period": 4,
+    "InitialPayment": 26322.0
+}, {
+    "Model": "Car637",
+    "Price": 12800.0,
+    "Period": 4,
+    "InitialPayment": 7253.0
+}, {
+    "Model": "Car99",
+    "Price": 14500.0,
+    "Period": 4,
+    "InitialPayment": 599.0
+}, {
+    "Model": "Car876",
+    "Price": 15300.0,
+    "Period": 3,
+    "InitialPayment": 6135.0
+}, {
+    "Model": "Car408",
+    "Price": 26200.0,
+    "Period": 4,
+    "InitialPayment": 21932.0
+}, {
+    "Model": "Car692",
+    "Price": 13000.0,
+    "Period": 2,
+    "InitialPayment": 6911.0
+}, {
+    "Model": "Car912",
+    "Price": 45800.0,
+    "Period": 3,
+    "InitialPayment": 36518.0
+}, {
+    "Model": "Car924",
+    "Price": 13900.0,
+    "Period": 2,
+    "InitialPayment": 11139.0
+}, {
+    "Model": "Car26",
+    "Price": 16700.0,
+    "Period": 4,
+    "InitialPayment": 14372.0
+}, {
+    "Model": "Car222",
+    "Price": 46200.0,
+    "Period": 4,
+    "InitialPayment": 31816.0
+}, {
+    "Model": "Car356",
+    "Price": 38500.0,
+    "Period": 3,
+    "InitialPayment": 27109.0
+}, {
+    "Model": "Car372",
+    "Price": 10200.0,
+    "Period": 3,
+    "InitialPayment": 8872.0
+}, {
+    "Model": "Car641",
+    "Price": 36500.0,
+    "Period": 3,
+    "InitialPayment": 25449.0
+}, {
+    "Model": "Car886",
+    "Price": 10600.0,
+    "Period": 1,
+    "InitialPayment": 10054.0
+}, {
+    "Model": "Car825",
+    "Price": 24700.0,
+    "Period": 3,
+    "InitialPayment": 17596.0
+}, {
+    "Model": "Car439",
+    "Price": 5800.0,
+    "Period": 1,
+    "InitialPayment": 4952.0
+}, {
+    "Model": "Car429",
+    "Price": 34000.0,
+    "Period": 4,
+    "InitialPayment": 27078.0
+}, {
+    "Model": "Car793",
+    "Price": 30800.0,
+    "Period": 4,
+    "InitialPayment": 18244.0
+}, {
+    "Model": "Car488",
+    "Price": 42800.0,
+    "Period": 4,
+    "InitialPayment": 29068.0
+}, {
+    "Model": "Car721",
+    "Price": 20200.0,
+    "Period": 4,
+    "InitialPayment": 13445.0
+}, {
+    "Model": "Car998",
+    "Price": 28900.0,
+    "Period": 1,
+    "InitialPayment": 28782.0
+}, {
+    "Model": "Car761",
+    "Price": 27100.0,
+    "Period": 3,
+    "InitialPayment": 21609.0
+}, {
+    "Model": "Car272",
+    "Price": 13700.0,
+    "Period": 2,
+    "InitialPayment": 9618.0
+}, {
+    "Model": "Car685",
+    "Price": 11000.0,
+    "Period": 1,
+    "InitialPayment": 10312.0
+}, {
+    "Model": "Car30",
+    "Price": 9200.0,
+    "Period": 4,
+    "InitialPayment": 5678.0
+}, {
+    "Model": "Car870",
+    "Price": 20000.0,
+    "Period": 4,
+    "InitialPayment": 19767.0
+}, {
+    "Model": "Car74",
+    "Price": 14800.0,
+    "Period": 2,
+    "InitialPayment": 9397.0
+}]
