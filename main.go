@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"math"
 	"os"
+	"time"
 )
 
 type car struct {
@@ -57,19 +58,80 @@ func getComputedCar(c car) computedCar {
 	return compCar
 }
 
-func main() {
-	filename := "data/IFF8-1_PetrauskasV_L1_dat_1.json"
-	var threshold float64 = 5000
-
-	var cars = read(filename)
-	fmt.Println("Total cars: ", len(cars))
-	for i := 0; i < len(cars); i++ {
-		cc := getComputedCar(cars[i])
-		ok := ""
-		if cc.computedValue < threshold {
-			ok = "OK"
-		}
-		outString := fmt.Sprintf("%6s %9.2f ", cc.car.Model, cc.computedValue)
-		fmt.Println(outString, ok)
+func dataThread(size int, c chan car) {
+	fmt.Println("Data process!")
+	// arr := make([]car, size)
+	counter := 0
+	for i := range c {
+		counter++
+		fmt.Println(i)
 	}
+	fmt.Println("Total:", counter)
+}
+
+func workerThread(threshold float64, cIn chan car, cOut chan computedCar, control chan int) {
+	fmt.Println("Worker process!")
+	defer fmt.Println("Worker done!")
+	for c := range cIn {
+		cc := getComputedCar(c)
+		if cc.computedValue < threshold {
+			cOut <- cc
+		}
+	}
+	control <- 1
+}
+
+func resultThread(cIn chan computedCar, cOut chan []computedCar) {
+	fmt.Println("Result process!")
+	defer fmt.Println("Results done!")
+	var arr []computedCar
+	for c := range cIn {
+		arr = append(arr, c)
+	}
+	cOut <- arr
+}
+
+func main() {
+	fmt.Println("Hello!")
+	defer fmt.Println("Done!")
+	filename := "data/IFF8-1_PetrauskasV_L1_dat_1.json"
+	processCount := 4
+	ccIn := make(chan computedCar)
+	ccOut := make(chan []computedCar)
+	controlChan := make(chan int, processCount)
+
+	var threshold float64 = 5000
+	var cars = read(filename)
+	cIn := make(chan car)
+
+	for i := 0; i < processCount; i++ {
+		go workerThread(threshold, cIn, ccIn, controlChan)
+	}
+	go resultThread(ccIn, ccOut)
+
+	for i := 0; i < len(cars); i++ {
+		cIn <- cars[i]
+	}
+	close(cIn)
+
+	control := 0
+	for i := 0; i < processCount; i++ {
+		signal := <-controlChan
+		control = control + signal
+		// fmt.Println(control)
+	}
+	close(ccIn)
+
+	cCars := <-ccOut
+	fmt.Println("Computed cars:", len(cCars))
+	// for i := 0; i < len(cCars); i++ {
+	// 	cc := cCars[i]
+	// 	ok := ""
+	// 	if cc.computedValue < threshold {
+	// 		ok = "OK"
+	// 	}
+	// 	outString := fmt.Sprintf("%6s %9.2f ", cc.car.Model, cc.computedValue)
+	// 	fmt.Println(outString, ok)
+	// }
+	time.Sleep(100 * time.Millisecond)
 }
