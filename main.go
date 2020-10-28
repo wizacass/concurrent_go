@@ -115,10 +115,12 @@ func main() {
 	close(cIn)
 
 	control := 0
-	for i := 0; i < processCount; i++ {
-		signal := <-controlChan
-		control = control + signal
-		// fmt.Println(control)
+	for i := range controlChan {
+		control += i
+		if control >= processCount {
+			close(ccIn)
+			break
+		}
 	}
 	close(ccIn)
 
