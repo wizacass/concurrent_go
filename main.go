@@ -136,7 +136,7 @@ func sortedInsert(arr []computedCar, c computedCar) []computedCar {
 	return arr
 }
 
-func run(filename string) {
+func run(dataFile string, resultsFile string) {
 	processCount := 4
 
 	dataIn := make(chan car)
@@ -148,9 +148,9 @@ func run(filename string) {
 	workerControl := make(chan int, processCount)
 
 	var threshold float64 = 5000
-	var cars = read(filename)
+	var cars = read(dataFile)
 
-	fmt.Println("Analyzing file", filename)
+	fmt.Println("Analyzing file", dataFile)
 
 	go dataThread(len(cars)/2, dataIn, dataOut, inputControl, dataControl)
 	for i := 0; i < processCount; i++ {
@@ -173,33 +173,48 @@ func run(filename string) {
 	}
 
 	cCars := <-resultsOut
-	printCars(cCars, threshold)
+	writeToFile(resultsFile, cCars)
 
 	time.Sleep(100 * time.Millisecond)
 }
 
-func printCars(cCars []computedCar, threshold float64) {
-	fmt.Println("Computed cars:", len(cCars))
-	for i := 0; i < len(cCars); i++ {
-		cc := cCars[i]
-		ok := ""
-		if cc.computedValue < threshold {
-			ok = "OK"
-		}
-		outString := fmt.Sprintf("%6s %9.2f ", cc.car.Model, cc.computedValue)
-		fmt.Println(outString, ok)
+func writeToFile(filename string, cCars []computedCar) {
+	header := "|   Model  |  Price   | P. |  Initial  | Monthly |\n"
+	sep := "+----------+----------+----+-----------+---------+\n"
+
+	f, err := os.Create(filename)
+	check(err)
+	defer f.Close()
+
+	f.WriteString(sep)
+	f.WriteString(header)
+	f.WriteString(sep)
+	if len(cCars) == 0 {
+		f.WriteString("|                  No elements!                  |\n")
+		f.WriteString(sep)
+		return
 	}
+
+	for _, c := range cCars {
+		row := fmt.Sprintf(
+			"| %8s | %8.2f | %2d | %9.2f | %7.2f |\n",
+			c.car.Model, c.car.Price, c.car.Period, c.car.InitialPayment, c.computedValue)
+		f.WriteString(row)
+	}
+	f.WriteString(sep)
+	f.WriteString(fmt.Sprintf("Total elements: %v\n", len(cCars)))
 }
 
 func main() {
 	fmt.Println("Hello!")
 	defer fmt.Println("Done!")
-	template := "data/IFF8-1_PetrauskasV_L1_dat_"
+	template := "data/IFF8-1_PetrauskasV_L1"
 	filenames := 3
 
 	for i := 1; i <= filenames; i++ {
-		filename := fmt.Sprintf("%v%v.json", template, i)
-		run(filename)
+		dataFile := fmt.Sprintf("%v_dat_%v.json", template, i)
+		resultsFile := fmt.Sprintf("%v_rez_%v.txt", template, i)
+		run(dataFile, resultsFile)
 		fmt.Println()
 	}
 }
