@@ -208,7 +208,7 @@ func writeToFile(filename string, cCars []computedCar) {
 func main() {
 	fmt.Println("Hello!")
 	defer fmt.Println("Done!")
-	template := "data/IFF8-1_PetrauskasV_L1"
+	template := "data/IFF8-1_PetrauskasV_L2"
 	filenames := 3
 
 	for i := 1; i <= filenames; i++ {
