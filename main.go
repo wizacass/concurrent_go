@@ -115,9 +115,25 @@ func workerThread(threshold float64, cIn chan car, cOut chan computedCar, contro
 func resultThread(cIn chan computedCar, cOut chan []computedCar) {
 	var arr []computedCar
 	for c := range cIn {
-		arr = append(arr, c)
+		arr = sortedInsert(arr, c)
 	}
 	cOut <- arr
+}
+
+func sortedInsert(arr []computedCar, c computedCar) []computedCar {
+	arr = append(arr, c)
+
+	for i := len(arr) - 1; i > 0; i-- {
+		if arr[i].computedValue < arr[i-1].computedValue {
+			t := arr[i]
+			arr[i] = arr[i-1]
+			arr[i-1] = t
+		} else {
+			break
+		}
+	}
+
+	return arr
 }
 
 func run(filename string) {
